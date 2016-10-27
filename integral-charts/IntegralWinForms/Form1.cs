@@ -34,10 +34,14 @@ namespace IntegralWinForms
         {
             rtbLog.Clear();
 
+            double[] koefSin = new double[100];
+            double[] koefPar = new double[100];
             double time, time1, time2;
             double[] time3 = new double[4];
             double[] time4 = new double[100];
             double[] time5 = new double[100];
+            double[] time6 = new double[100];
+            double[] time7 = new double[100];
 
             double a = Convert.ToDouble(tbA.Text);
             double b = Convert.ToDouble(tbB.Text);
@@ -70,6 +74,8 @@ namespace IntegralWinForms
             chart2.Series[0].Points.Clear();
             chart1.Series[0].Points.Clear(); 
             chart1.Series[1].Points.Clear();
+            chart4.Series[0].Points.Clear();
+            chart4.Series[1].Points.Clear();
 
             chart3.Series[0].Points.AddXY(1, time);
             chart3.Series[1].Points.AddXY(2, time3[0]);
@@ -80,10 +86,20 @@ namespace IntegralWinForms
             chart2.Series[0].Points.AddXY(3, time3[2]);
             chart2.Series[0].Points.AddXY(4, time3[0]);
 
-            for (int i = 0; i < 100; i++)
+            time6[0] = time4[99];
+            time7[0] = time5[99];
+
+            for (int i = 0; i < 98; i++)
             {
-                chart1.Series[0].Points.AddXY(i * N / 100, time4[i]);                
+                koefSin[97 - i] = time4[i + 2] / time4[i + 1];
+                koefPar[97 - i] = time5[i + 2] / time5[i + 1];
+                time6[i + 1] = time6[i] / koefSin[97 - i];
+                time7[i + 1] = time7[i] / koefPar[97 - i];
+
+                chart1.Series[0].Points.AddXY(i * N / 100, time4[i]);
                 chart1.Series[1].Points.AddXY(i * N / 100, time5[i]);
+                chart4.Series[0].Points.AddXY(i * (b - a) / 100, time6[i]);
+                chart4.Series[1].Points.AddXY(i * (b - a) / 100, time7[i]);
             }
 
         }
