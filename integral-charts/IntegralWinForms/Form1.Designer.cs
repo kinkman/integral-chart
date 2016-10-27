@@ -40,6 +40,10 @@
             System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tbA = new System.Windows.Forms.TextBox();
             this.tbB = new System.Windows.Forms.TextBox();
             this.nudN = new System.Windows.Forms.NumericUpDown();
@@ -55,10 +59,13 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.chart4 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             ((System.ComponentModel.ISupportInitialize)(this.nudN)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart4)).BeginInit();
             this.SuspendLayout();
             // 
             // tbA
@@ -103,7 +110,7 @@
             // 
             this.rtbLog.Location = new System.Drawing.Point(12, 138);
             this.rtbLog.Name = "rtbLog";
-            this.rtbLog.Size = new System.Drawing.Size(264, 435);
+            this.rtbLog.Size = new System.Drawing.Size(264, 349);
             this.rtbLog.TabIndex = 4;
             this.rtbLog.Text = "";
             // 
@@ -136,7 +143,7 @@
             // 
             // btCalc
             // 
-            this.btCalc.Location = new System.Drawing.Point(12, 582);
+            this.btCalc.Location = new System.Drawing.Point(12, 493);
             this.btCalc.Name = "btCalc";
             this.btCalc.Size = new System.Drawing.Size(129, 42);
             this.btCalc.TabIndex = 8;
@@ -147,7 +154,7 @@
             // btClose
             // 
             this.btClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btClose.Location = new System.Drawing.Point(147, 582);
+            this.btClose.Location = new System.Drawing.Point(147, 493);
             this.btClose.Name = "btClose";
             this.btClose.Size = new System.Drawing.Size(129, 42);
             this.btClose.TabIndex = 9;
@@ -214,7 +221,7 @@
             this.chart3.Series.Add(series4);
             this.chart3.Series.Add(series5);
             this.chart3.Series.Add(series6);
-            this.chart3.Size = new System.Drawing.Size(732, 323);
+            this.chart3.Size = new System.Drawing.Size(356, 235);
             this.chart3.TabIndex = 12;
             this.chart3.Text = "chart3";
             // 
@@ -245,12 +252,45 @@
             this.label6.TabIndex = 15;
             this.label6.Text = "Диаграмма времени выполнения различных алгоритмов";
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(674, 284);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(278, 13);
+            this.label7.TabIndex = 16;
+            this.label7.Text = "График зависимости времени выполнения от шага h";
+            // 
+            // chart4
+            // 
+            chartArea4.Name = "ChartArea1";
+            this.chart4.ChartAreas.Add(chartArea4);
+            legend4.Name = "Legend1";
+            this.chart4.Legends.Add(legend4);
+            this.chart4.Location = new System.Drawing.Point(677, 300);
+            this.chart4.Name = "chart4";
+            series7.ChartArea = "ChartArea1";
+            series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series7.Legend = "Legend1";
+            series7.Name = "Single";
+            series8.ChartArea = "ChartArea1";
+            series8.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series8.Legend = "Legend1";
+            series8.Name = "Parallel";
+            this.chart4.Series.Add(series7);
+            this.chart4.Series.Add(series8);
+            this.chart4.Size = new System.Drawing.Size(356, 235);
+            this.chart4.TabIndex = 17;
+            this.chart4.Text = "chart4";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btClose;
-            this.ClientSize = new System.Drawing.Size(1056, 635);
+            this.ClientSize = new System.Drawing.Size(1056, 547);
+            this.Controls.Add(this.chart4);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -272,6 +312,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -294,6 +335,8 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart4;
     }
 }
 
