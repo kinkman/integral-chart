@@ -93,6 +93,18 @@ namespace IntegralWinForms.Classes
             return res3;
         }
 
+        public double RectangleTaskParralel(out double time)
+        {
+            Stopwatch sw4;
+            sw4 = new Stopwatch();
+            sw4.Start();
+            time = 0;
+            double res4 = ParallelTaskCalcRectangle(a, b, n, _F);
+            sw4.Stop();
+            time = sw4.ElapsedMilliseconds;
+            return res4;
+        }
+
         private double CalcRectangle(double a, double b, long N, Func<double, double> f, ref double[] time5)
         {
             Stopwatch sw;
@@ -206,6 +218,31 @@ namespace IntegralWinForms.Classes
                 return local;
             }, local => { lock (obj) S += local; });
             
+            S *= h;
+            return S;
+        }
+
+        private double ParallelTaskCalcRectangle(double a, double b, long N, Func<double, double> f)
+        {
+            Task[] tasks = new Task[4];
+            double h = (b - a) / n;
+            double S = 0;
+            for (int i = 0; i < 4; i++)
+            {
+                int i1 = i;
+                tasks[i] = Task.Run(() =>
+                {
+                    double S1 = 0;
+                    for (int j = i1 * (int)(n / 4); j < i1 * (int)(n / 4) + (int)(n / 4); j++)
+                    {
+                        S1 += _F(a + j * h);
+                    }
+                    S += S1;
+                });
+            }
+
+            Task.WaitAll(tasks);
+
             S *= h;
             return S;
         }
