@@ -1,0 +1,9 @@
+D:\Projects\integral\Новая папка\integral-charts\IntegralWinForms\bin\Debug\IntegralWinForms.exe.config
+D:\Projects\integral\Новая папка\integral-charts\IntegralWinForms\obj\Debug\IntegralWinForms.exe
+D:\Projects\integral\Новая папка\integral-charts\IntegralWinForms\obj\Debug\IntegralWinForms.pdb
+D:\Projects\integral\Новая папка\integral-charts\IntegralWinForms\bin\Debug\IntegralWinForms.exe
+D:\Projects\integral\Новая папка\integral-charts\IntegralWinForms\bin\Debug\IntegralWinForms.pdb
+D:\Projects\integral\Новая папка\integral-charts\IntegralWinForms\obj\Debug\IntegralWinForms.csprojResolveAssemblyReference.cache
+D:\Projects\integral\Новая папка\integral-charts\IntegralWinForms\obj\Debug\IntegralWinForms.Form1.resources
+D:\Projects\integral\Новая папка\integral-charts\IntegralWinForms\obj\Debug\IntegralWinForms.Properties.Resources.resources
+D:\Projects\integral\Новая папка\integral-charts\IntegralWinForms\obj\Debug\IntegralWinForms.csproj.GenerateResource.Cache
