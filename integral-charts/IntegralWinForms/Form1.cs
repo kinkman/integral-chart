@@ -36,7 +36,7 @@ namespace IntegralWinForms
 
             double[] koefSin = new double[100];
             double[] koefPar = new double[100];
-            double time, time1, time2;
+            double time, time1, time2, time8;
             double[] time3 = new double[4];
             double[] time4 = new double[100];
             double[] time5 = new double[100];
@@ -50,7 +50,8 @@ namespace IntegralWinForms
 
             double result = aInt.Rectangle(out time, ref time4);
             double result1 = aInt.RectangleThreadParralel(out time1, ref time3, ref time5);            
-            double result2 = aInt.RectangleForParralel(out time2);             
+            double result2 = aInt.RectangleForParralel(out time2);
+            double result3 = aInt.RectangleTaskParralel(out time8);
 
             rtbLog.AppendText("Последовательный вариант" + Environment.NewLine);
             rtbLog.AppendText("Ответ: " + result.ToString() + Environment.NewLine);
@@ -63,6 +64,10 @@ namespace IntegralWinForms
             rtbLog.AppendText("Parallel For вариант" + Environment.NewLine);
             rtbLog.AppendText("Ответ: " + result2.ToString() + Environment.NewLine);
             rtbLog.AppendText("Время: " + time2.ToString() + Environment.NewLine);
+
+            rtbLog.AppendText("Parallel Tasks вариант" + Environment.NewLine);
+            rtbLog.AppendText("Ответ: " + result3.ToString() + Environment.NewLine);
+            rtbLog.AppendText("Время: " + time8.ToString() + Environment.NewLine);
             
             rtbLog.AppendText(Environment.NewLine);
 
